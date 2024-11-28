@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Models</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset some default styles */
+body, h1, h2, p, a {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: #2F4F4F; /* Slate Gray Background */
+    color: #D9F3F3; /* Light Teal Text */
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and margins don't affect overall layout */
+}
+
+/* Header Styling */
+header {
+    background-color: #007F7F; /* Dark Teal */
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .logo {
+    font-size: 1.8em;
+    color: #fff;
+    font-weight: 600;
+    margin-left: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header nav {
+    float: right;
+    margin-right: 20px;
+}
+
+header nav a {
+    color: #fff;
+    margin-left: 20px;
+    font-size: 1.1em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #66B2B2; /* Lighter Teal */
+}
+
+/* Container for all the content */
+.container {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 20px;
+}
+
+/* Title Styling */
+h1 {
+    font-size: 3em;
+    color: #66B2B2;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Card container and card styles */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Adjust card for smaller screens */
+.card {
+    background-color: #2E6266; /* Teal Card Background */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 4px solid transparent;
+    width: 100%;
+    max-width: 350px;
+    height: 485px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Card Image */
+.card-image {
+    width: 100%;
+    height: 250px; /* Increased height for better visibility */
+    object-fit: cover; /* Ensures the image fills the space without distortion */
+    border: none; /* Removed border below the image */
+    margin-bottom: 10px;
+}
+
+/* Card Title and Description */
+.card h2 {
+    font-size: 1.6em;
+    color: #fff;
+    padding: 20px 0;
+    background-color: #2E6266;
+    border-bottom: 2px solid #ddd;
+}
+
+.card p {
+    padding: 0 20px 20px;
+    font-size: 1.1em;
+    color: #D9F3F3;
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    background-color: #00A6A6; /* Teal Button */
+    color: #2F4F4F; /* Slate Gray Text */
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #007F7F;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Footer Styling */
+footer {
+    background-color: #007F7F;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #66B2B2;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    header nav {
+        float: none;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    header nav a {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        max-width: 100%;
+        width: 100%;
+        height: auto; /* Let the height adjust */
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .card h2 {
+        font-size: 1.4em;
+    }
+
+    .btn {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+
+/* Title Styling with typing effect */
+h1.typing-effect {
+    font-size: 3em;
+    color: #66B2B2;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    overflow: hidden;
+    border-right: 3px solid #66B2B2; /* Blinking cursor */
+    white-space: nowrap;
+    width: 0; /* Initially set the width to 0 for the typing effect */
+    animation: typing 4s steps(30) 1s 1 normal both, blink 0.75s step-end infinite;
+}
+
+/* Keyframes for typing effect */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Keyframes for blinking cursor */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ModelVerse</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/login">Login</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h1 class="typing-effect">Explore Our Machine Learning Models</h1>
+        <div class="card-container">
+            <!-- Model 1 Card -->
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/model1.jpg') }}" alt="Model 1" class="card-image">
+                <h2>Model 1: Loan Eligibility Prediction</h2>
+                <p>Predict the likelihood of loan eligibility based on user data.</p>
+                <a href="{{ url_for('model1.model1_home') }}" class="btn">Go to Model 1</a>
+            </div>
+
+
+            <!-- Model 3 Card -->
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/model3.jpg') }}" alt="Model 3" class="card-image">
+                <h2>Model 2: Credit Default Prediction</h2>
+                <p>Predict the likelihood of a person defaulting on a credit loan.</p>
+                <a href="{{ url_for('model3.model3_home') }}" class="btn">Go to Model 2</a>
+            </div>
+
+
+            <!-- Model 5 Card -->
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/model5.jpg') }}" alt="Model 5" class="card-image">
+                <h2>Model 3: Purchase Prediction</h2>
+                <p>Predict the likelihood of a customer making a purchase based on behavior.</p>
+                <a href="{{ url_for('model5.model5_home') }}" class="btn">Go to Model 3</a>
+            </div>
+
+            <!-- Model 6 Card -->
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/model6.jpg') }}" alt="Model 6" class="card-image">
+                <h2>Model 4: Admission Chance Prediction</h2>
+                <p>Predict the salary of an individual based on experience and other factors.</p>
+                <a href="{{ url_for('model6.model6_home') }}" class="btn">Go to Model 4</a>
+            </div>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/model7.jpg') }}" alt="Model 7" class="card-image">
+                <h2>Model 5: Ice cream Revenue Prediction</h2>
+                <p>Predict the ice cream reveneue based on the temperature.</p>
+                <a href="{{ url_for('model7.model7_home') }}" class="btn">Go to Model 5</a>
+            </div>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/model8.jpg') }}" alt="Model 6" class="card-image">
+                <h2>Model 6: Diabetes Prediction</h2>
+                <p>Predict the likelihood of a person having Diabetes</p>
+                <a href="{{ url_for('model8.model8_home') }}" class="btn">Go to Model 6</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ModelVerse. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #004d4d, #008080); /* Dark teal to gradient */
+            margin: 0;
+            padding: 0;
+            color: white; /* Adjust text color for contrast */
+        }
+        h1 {
+            color: #e0f2f1; /* Light teal text color */
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #006666; /* Deep teal for form background */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #b2dfdb; /* Soft teal for labels */
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px;
+            border: 1px solid #80cbc4; /* Teal border */
+            border-radius: 4px;
+            background-color: #004d4d; /* Dark teal for inputs */
+            color: white;
+            box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+        }
+        input[type="submit"] {
+            background-color: #008080; /* Medium teal */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #006666; /* Slightly darker teal on hover */
+        }
+        .result {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 30px;
+            color: #e0f2f1; /* Light teal text for prediction result */
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Diabetes Prediction</h1>
+    <form action="model8/predict" method="POST">
+        <div class="form-group">
+            <label for="pregnancies">Pregnancies:</label>
+            <input type="number" step="any" name="pregnancies" id="pregnancies" required>
+        </div>
+        <div class="form-group">
+            <label for="glucose">Glucose:</label>
+            <input type="number" step="any" name="glucose" id="glucose" required>
+        </div>
+        <div class="form-group">
+            <label for="diastolic">Diastolic:</label>
+            <input type="number" step="any" name="diastolic" id="diastolic" required>
+        </div>
+        <div class="form-group">
+            <label for="triceps">Triceps:</label>
+            <input type="number" step="any" name="triceps" id="triceps" required>
+        </div>
+        <div class="form-group">
+            <label for="insulin">Insulin:</label>
+            <input type="number" step="any" name="insulin" id="insulin" required>
+        </div>
+        <div class="form-group">
+            <label for="bmi">BMI:</label>
+            <input type="number" step="any" name="bmi" id="bmi" required>
+        </div>
+        <div class="form-group">
+            <label for="dpf">Diabetes Pedigree Function (DPF):</label>
+            <input type="number" step="any" name="dpf" id="dpf" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" step="any" name="age" id="age" required>
+        </div>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">
+        <p>{{ prediction_text }}</p>
+    </div>
+    {% endif %}
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Diabetes Prediction Model. All rights reserved.</p>
+</div>
+
+</body>
+</html>

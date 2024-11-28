@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Link to external CSS file -->
+    <style>
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #003333, #005959); /* Deep teal gradient */
+            padding: 20px;
+            margin: 0;
+            color: white;
+        }
+
+        /* Title Styling */
+        h1 {
+            text-align: center;
+            color: #e0f2f1; /* Light teal for contrast */
+            font-size: 2em;
+        }
+
+        /* Form Styling */
+        form {
+            max-width: 520px;
+            margin: 20px auto; /* Center the form */
+            background-color: #006666; /* Deep teal background */
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            font-weight: bold;
+            color: #b2dfdb; /* Light teal */
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px;
+            border-radius: 5px;
+            border: 1px solid #80cbc4; /* Teal border */
+            background-color: #004d4d; /* Dark teal for input fields */
+            color: white; /* Text color */
+            font-size: 14px;
+        }
+
+        /* Styling for Buttons */
+        button {
+            width: 100%;
+            background-color: #008080; /* Medium teal */
+            color: white;
+            font-size: 16px;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005959; /* Slightly darker teal */
+        }
+
+        /* Styling Prediction Results */
+        .prediction-result {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 20px;
+            color: #e0f2f1; /* Light teal */
+        }
+    </style>
+</head>
+<body>
+    <h1>Cancer Prediction Model</h1>
+
+    <form action="model2/predict" method="POST">
+        <label for="radius">Radius:</label>
+        <input type="number" step="any" name="radius" id="radius" required>
+
+        <label for="texture">Texture:</label>
+        <input type="number" step="any" name="texture" id="texture" required>
+
+        <label for="perimeter">Perimeter:</label>
+        <input type="number" step="any" name="perimeter" id="perimeter" required>
+
+        <label for="area">Area:</label>
+        <input type="number" step="any" name="area" id="area" required>
+
+        <label for="smoothness">Smoothness:</label>
+        <input type="number" step="any" name="smoothness" id="smoothness" required>
+
+        <label for="compactness">Compactness:</label>
+        <input type="number" step="any" name="compactness" id="compactness" required>
+
+        <label for="concavity">Concavity:</label>
+        <input type="number" step="any" name="concavity" id="concavity" required>
+
+        <label for="concave_points">Concave Points:</label>
+        <input type="number" step="any" name="concave_points" id="concave_points" required>
+
+        <label for="symmetry">Symmetry:</label>
+        <input type="number" step="any" name="symmetry" id="symmetry" required>
+
+        <label for="fractal_dimension">Fractal Dimension:</label>
+        <input type="number" step="any" name="fractal_dimension" id="fractal_dimension" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="prediction-result">
+            <h2>{{ prediction_text }}</h2>
+        </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Teal Theme */
+        body {
+            background: linear-gradient(to right, #004d4d, #008080);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #005757;
+        }
+        .navbar a {
+            color: white !important;
+        }
+        .navbar-brand {
+            color: #0ea0a0 ; /* Neon Cyan */
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+        .navbar a:hover {
+            color: #00ffff !important; /* Neon Cyan on hover */
+        }
+        .header, .footer {
+            background-color: #004d4d;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .model-card {
+            background-color: #006666;
+            border: 1px solid #008080;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .model-card h4 {
+            color: #b3ffff;
+        }
+        .model-card p {
+            color: #d1ffd1; /* Lighter green for text */
+        }
+        .header h1 {
+            color: #b3ffff; /* Light teal for header text */
+            text-align: center;
+            display: inline-block;
+            position: relative;
+        }
+        .footer p {
+            margin: 0;
+            color: #d1ffd1; /* Lighter green for footer text */
+        }
+        .content p {
+            color: #d1ffd1; /* Light green for content paragraph text */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand">ModelVerse</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+        <h1 id="aboutText"></h1> <!-- This will be typed dynamically -->
+    </header>
+
+    <!-- Main Content -->
+    <div class="content container">
+        <!-- Introduction Section -->
+        <section>
+            <p>
+                Welcome to a space where technology meets solutions. Our platform brings the power of machine learning to your fingertips, transforming data into actionable insights that drive smarter decisions. Whether you're navigating the complexities of loan eligibility, diagnosing health conditions with precision, or predicting the next big trend in consumer behavior, our models are here to guide you. Designed to tackle real-world challenges, our website offers tailored predictions that help businesses, healthcare providers, and financial institutions make confident, data-backed decisions. Step into the future of decision-making, where every input leads to valuable outcomes.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- Models Section -->
+        <section>
+            <h2 style="color: #b3ffff;">Our Models</h2>
+            <div class="row">
+                <!-- Model 1: Loan Eligibility Predictor -->
+                <div class="col-md-6">
+                    <div class="model-card">
+                        <h4>Loan Eligibility Predictor</h4>
+                        <p>Our loan eligibility model evaluates key factors like income, loan amount, credit history, and property area to predict whether an applicant is eligible for a loan. It provides a quick, clear result: “Eligible” or “Not Eligible,” helping financial institutions make faster, more accurate decisions.</p>
+                    </div>
+                </div>
+                
+                <!-- Model 3: Credit Card Default Predictor -->
+                <div class="col-md-6">
+                    <div class="model-card">
+                        <h4>Credit Card Default Predictor</h4>
+                        <p>Our credit card default prediction model examines payment history, credit balance, and recent transactions to assess the likelihood of default. It provides a straightforward prediction of whether the user is at risk of defaulting, helping financial institutions take proactive measures.</p>
+                    </div>
+                </div>
+                
+                <!-- Model 5: Purchase Prediction -->
+                <div class="col-md-6">
+                    <div class="model-card">
+                        <h4>Purchase Prediction</h4>
+                        <p>Our purchase prediction model analyzes user behavior, including browsing history, demographics, and past purchases, to predict the likelihood of a future purchase. This helps businesses anticipate customer buying behavior and tailor marketing strategies more effectively.</p>
+                    </div>
+                </div>
+                <!-- Model 6: Admission Chance Prediction -->
+                <div class="col-md-6">
+                    <div class="model-card">
+                        <h4>Admission Chance Prediction</h4>
+                        <p>Our admission chance prediction model evaluates applicant data such as GPA, GRE scores, research experience, and extracurricular achievements to estimate the likelihood of acceptance. It provides a percentage-based probability, helping applicants gauge their chances more effectively.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="model-card">
+                        <h4>Ice Cream Revenue Prediction</h4>
+                        <p>Our ice cream revenue prediction model uses temperature data to forecast ice cream sales revenue. By analyzing the relationship between temperature and customer demand, it helps businesses optimize stock and sales strategies based on weather patterns.</p>
+                    </div>
+                </div>
+                <!-- Model 8: Diabetes Prediction -->
+                <div class="col-md-6">
+                    <div class="model-card">
+                        <h4>Diabetes Prediction</h4>
+                        <p>Our diabetes prediction model analyzes patient data, including blood glucose level, BMI, age, blood pressure, and insulin levels, to determine the likelihood of diabetes. It provides a clear prediction, helping healthcare providers identify risk and take preventive measures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 ModelVerse. All rights reserved.</p>
+    </footer>
+
+    <!-- Optional Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Typing effect for the header text
+        var i = 0;
+        var text = "About ModelVerse";
+        var speed = 100; // Typing speed (milliseconds)
+
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("aboutText").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        window.onload = function() {
+            typeWriter();
+        };
+    </script>
+</body>
+</html>
